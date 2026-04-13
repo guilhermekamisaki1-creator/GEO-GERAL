@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AULA COMPLETA: Demografia - Geografia Geral</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f1118;
+  --card: #1a1d2e;
+  --card-hover: #222640;
+  --accent: #ff6b35;
+  --accent2: #4ecdc4;
+  --accent3: #ffe66d;
+  --accent4: #a8e6cf;
+  --text: #e8e6e3;
+  --text-muted: #8b8d97;
+  --border: #2a2d3e;
+  --gradient1: linear-gradient(135deg, #ff6b35, #ff8c61);
+  --gradient2: linear-gradient(135deg, #4ecdc4, #44b09e);
+  --gradient3: linear-gradient(135deg, #ffe66d, #ffd93d);
+  --gradient4: linear-gradient(135deg, #a8e6cf, #88d8b0);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Sans 3', sans-serif;
+  line-height: 1.8;
+  font-size: 17px;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+/* === HERO === */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255,107,53,0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(78,205,196,0.1) 0%, transparent 50%),
+              var(--bg);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+.hero-badge {
+  background: var(--gradient1);
+  color: #fff;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero h1 span {
+  background: var(--gradient1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+}
+.hero-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-nav a {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 16px 28px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-nav a:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  background: var(--card-hover);
+}
+.hero-nav a .num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+.t1 .num { background: var(--gradient1); }
+.t2 .num { background: var(--gradient2); }
+.t3 .num { background: var(--gradient3); color: #333; }
+.t4 .num { background: var(--gradient4); color: #333; }
+
+/* === CONTAINER === */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* === SECTION HEADER === */
+.section-header {
+  padding: 100px 0 60px;
+  text-align: center;
+  position: relative;
+}
+.section-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  font-weight: 900;
+  opacity: 0.06;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+}
+.section-tag {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.section-tag.t1 { background: rgba(255,107,53,0.15); color: var(--accent); }
+.section-tag.t2 { background: rgba(78,205,196,0.15); color: var(--accent2); }
+.section-tag.t3 { background: rgba(255,230,109,0.15); color: var(--accent3); }
+.section-tag.t4 { background: rgba(168,230,207,0.15); color: var(--accent4); }
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+/* === CONTENT BLOCKS === */
+.content-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.content-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+.content-block.t1::before { background: var(--gradient1); }
+.content-block.t2::before { background: var(--gradient2); }
+.content-block.t3::before { background: var(--gradient3); }
+.content-block.t4::before { background: var(--gradient4); }
+
+.content-block h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.content-block h4 {
+  font-size: 1.2rem;
+  margin: 24px 0 12px;
+  color: var(--accent);
+}
+.content-block p {
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+/* === HIGHLIGHT BOX === */
+.highlight {
+  background: rgba(255,107,53,0.08);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  border-radius: 0 12px 12px 0;
+  margin: 20px 0;
+}
+.highlight.green {
+  background: rgba(78,205,196,0.08);
+  border-left-color: var(--accent2);
+}
+.highlight.yellow {
+  background: rgba(255,230,109,0.08);
+  border-left-color: var(--accent3);
+}
+.highlight.mint {
+  background: rgba(168,230,207,0.08);
+  border-left-color: var(--accent4);
+}
+.highlight strong { color: var(--accent); }
+.highlight.green strong { color: var(--accent2); }
+.highlight.yellow strong { color: var(--accent3); }
+.highlight.mint strong { color: var(--accent4); }
+
+/* === FORMULA BOX === */
+.formula {
+  background: linear-gradient(135deg, rgba(78,205,196,0.1), rgba(255,107,53,0.05));
+  border: 1px solid rgba(78,205,196,0.3);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  margin: 24px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.1rem;
+}
+.formula .label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.85rem;
+  color: var(--accent2);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.formula .eq {
+  font-size: 1.3rem;
+  color: #fff;
+}
+.formula .frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 8px;
+}
+.formula .frac .num { border-bottom: 2px solid var(--accent2); padding-bottom: 4px; }
+.formula .frac .den { padding-top: 4px; font-size: 0.95rem; }
+
+/* === COMPARISON TABLE === */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 24px 0;
+}
+@media (max-width: 600px) { .comparison { grid-template-columns: 1fr; } }
+.comp-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+.comp-card h4 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+.comp-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 8px; }
+
+/* === TIMELINE === */
+.timeline {
+  position: relative;
+  margin: 30px 0;
+  padding-left: 40px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent2), var(--accent3));
+  border-radius: 3px;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+}
+.timeline-item .year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+.timeline-item .desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* === PYRAMID DIAGRAM === */
+.pyramid-container {
+  margin: 30px 0;
+  text-align: center;
+}
+.pyramid-svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* === THEORY CARDS === */
+.theory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 24px 0;
+}
+.theory-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s;
+}
+.theory-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+.theory-card .emoji { font-size: 2rem; margin-bottom: 12px; display: block; }
+.theory-card h4 { margin: 0 0 8px; font-size: 1.1rem; color: #fff; }
+.theory-card .period { font-size: 0.8rem; color: var(--accent); font-weight: 700; margin-bottom: 12px; }
+.theory-card p { font-size: 0.92rem; color: var(--text-muted); }
+
+/* === STAGE TABLE === */
+.stage-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 24px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.stage-table th {
+  background: rgba(255,107,53,0.15);
+  color: var(--accent);
+  padding: 14px 16px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: 700;
+}
+.stage-table td {
+  padding: 14px 16px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.stage-table tr:last-child td { border-bottom: none; }
+.stage-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+.stage-table td:first-child {
+  font-weight: 700;
+  color: var(--accent2);
+  text-align: left;
+}
+
+/* === VIDEO SECTION === */
+.video-section {
+  background: linear-gradient(135deg, rgba(255,107,53,0.05), rgba(78,205,196,0.05));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+  margin: 40px 0;
+}
+.video-section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.video-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.video-item:last-child { border-bottom: none; }
+.video-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255,0,0,0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+}
+.video-info h4 {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 0 4px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+}
+.video-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+.video-info .prof {
+  color: var(--accent2);
+  font-weight: 600;
+}
+
+/* === ANALOGY BOX === */
+.analogy {
+  background: linear-gradient(135deg, rgba(255,230,109,0.08), rgba(255,107,53,0.05));
+  border: 1px dashed var(--accent3);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 24px 0;
+  position: relative;
+}
+.analogy::before {
+  content: '💡';
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  font-size: 1.5rem;
+  background: var(--card);
+  padding: 0 8px;
+}
+.analogy .title {
+  font-weight: 700;
+  color: var(--accent3);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+/* === EXTRA CONTENT TAG === */
+.extra-tag {
+  display: inline-block;
+  background: rgba(168,230,207,0.15);
+  color: var(--accent4);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+
+/* === DIVIDER === */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 60px 0;
+}
+
+/* === VESTIBULAR TIP === */
+.vest-tip {
+  background: linear-gradient(135deg, rgba(255,107,53,0.12), rgba(255,107,53,0.04));
+  border: 1px solid rgba(255,107,53,0.3);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 24px 0;
+  position: relative;
+}
+.vest-tip::before {
+  content: '🎯';
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  font-size: 1.4rem;
+  background: var(--card);
+  padding: 0 8px;
+}
+.vest-tip .title {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* === MOBILE === */
+@media (max-width: 600px) {
+  .content-block { padding: 24px 18px; }
+  .hero h1 { font-size: 2rem; }
+  .section-number { font-size: 5rem; }
+  .stage-table { font-size: 0.8rem; }
+  .stage-table th, .stage-table td { padding: 10px 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero">
+  <div class="hero-badge">Geografia Geral — Prof. Bruno Mastrocola</div>
+  <h1>Demografia e<br><span>Dinâmica Populacional</span></h1>
+  <p>Aula completa e aprofundada sobre a evolução da população mundial, conceitos demográficos, teorias populacionais, transição demográfica, pirâmides etárias e bônus demográfico. Preparação de nível vestibular (ENEM, FUVEST, UNICAMP).</p>
+  <nav class="hero-nav">
+    <a href="#tema1" class="t1"><span class="num">1</span> Evolução da População</a>
+    <a href="#tema2" class="t2"><span class="num">2</span> Conceitos Demográficos</a>
+    <a href="#tema3" class="t3"><span class="num">3</span> Teorias Demográficas</a>
+    <a href="#tema4" class="t4"><span class="num">4</span> Estrutura Etária</a>
+  </nav>
+</section>
+
+<!-- ============================== TEMA 1 ============================== -->
+<div class="container" id="tema1">
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <span class="section-tag t1">Tema 01</span>
+    <h2>Evolução da População Mundial</h2>
+    <p style="color:var(--text-muted)">Livro 04 — Frente A — Unidade 01 — Pág. 10-12</p>
+  </div>
+
+  <div class="content-block t1">
+    <h3>📈 A Grande Aceleração: de 182 milhões a 8 bilhões</h3>
+    <p>Imagine a seguinte situação: durante milhares de anos, a humanidade cresceu <strong>devagar</strong>. No ano 1 d.C., éramos cerca de <strong>182 milhões de pessoas</strong> no planeta inteiro — menos do que a população do Brasil hoje. Agora veja o dado impressionante: foram necessários <strong>mais de 1800 anos</strong> para chegarmos ao nosso primeiro bilhão (em 1804). Mas depois disso, cada bilhão seguinte foi chegando mais rápido.</p>
+
+    <div class="analogy">
+      <div class="title">Analogia para entender</div>
+      <p>Pense numa bola de neve rolando ladeira abaixo. No começo ela é pequena e rola devagar. Mas quanto maior ela fica, mais neve ela acumula a cada volta, e mais rápido ela cresce. Isso é o que chamamos de <strong>crescimento exponencial</strong> — e foi exatamente o que aconteceu com a população mundial a partir do século XIX.</p>
+    </div>
+
+    <h4>Os marcos populacionais — cada bilhão mais rápido</h4>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="year">1804</div>
+        <div class="desc"><strong>1 bilhão</strong> — Levou toda a história humana até aqui.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">1927 (123 anos depois)</div>
+        <div class="desc"><strong>2 bilhões</strong> — Revolução Industrial e melhorias médicas.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">1960 (33 anos depois)</div>
+        <div class="desc"><strong>3 bilhões</strong> — Explosão demográfica pós-2ª Guerra Mundial.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">1974 (14 anos depois)</div>
+        <div class="desc"><strong>4 bilhões</strong> — Avanços na medicina e na produção de alimentos.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">1987 (13 anos depois)</div>
+        <div class="desc"><strong>5 bilhões</strong> — Revolução Verde alimentando mais gente.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">1999 (12 anos depois)</div>
+        <div class="desc"><strong>6 bilhões</strong> — Crescimento ainda forte nos países em desenvolvimento.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2011 (12 anos depois)</div>
+        <div class="desc"><strong>7 bilhões</strong> — Desaceleração começa a aparecer.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2022 (11 anos depois)</div>
+        <div class="desc"><strong>8 bilhões</strong> — A taxa de crescimento cai, mas a população segue subindo.</div>
+      </div>
+    </div>
+
+    <div class="vest-tip">
+      <div class="title">Dica de Vestibular</div>
+      <p>Perceba o padrão: de <strong>123 anos</strong> entre o 1º e o 2º bilhão, caímos para <strong>11 anos</strong> entre o 7º e o 8º. Porém, a <strong>taxa de crescimento anual</strong> (que chegou ao pico de 2,1% em 1968) vem <strong>diminuindo</strong> e está projetada para chegar a 0,1% em 2100. Ou seja: a população continua crescendo, mas cada vez mais devagar. Esse conceito é cobrado frequentemente no ENEM!</p>
+    </div>
+  </div>
+
+  <div class="content-block t1">
+    <h3>🗺️ Onde as pessoas estão? A distribuição desigual</h3>
+    <p>A população mundial <strong>não é distribuída de forma homogênea</strong>. Existem quatro grandes concentrações populacionais no mundo (os chamados "formigueiros humanos"):</p>
+
+    <div class="comparison">
+      <div class="comp-card">
+        <h4 style="color:var(--accent)">🅰️ Sul e Sudeste Asiático</h4>
+        <p>Índia, Bangladesh, Paquistão</p>
+        <p style="font-size:1.3rem;font-weight:700;color:var(--accent)">~2,5 bilhões</p>
+      </div>
+      <div class="comp-card">
+        <h4 style="color:var(--accent2)">🅱️ Leste Asiático</h4>
+        <p>China, Japão, Coreia</p>
+        <p style="font-size:1.3rem;font-weight:700;color:var(--accent2)">~1,7 bilhão</p>
+      </div>
+      <div class="comp-card">
+        <h4 style="color:var(--accent3)">🅲 Europa</h4>
+        <p>Europa Ocidental e Central</p>
+        <p style="font-size:1.3rem;font-weight:700;color:var(--accent3)">~750 milhões</p>
+      </div>
+      <div class="comp-card">
+        <h4 style="color:var(--accent4)">🅳 Nordeste da América</h4>
+        <p>Costa leste dos EUA e Canadá</p>
+        <p style="font-size:1.3rem;font-weight:700;color:var(--accent4)">~170 milhões</p>
+      </div>
+    </div>
+
+    <p>Segundo dados de 2022, a distribuição por continentes é: <strong>Ásia 59,2%</strong> da população mundial, <strong>África 17,9%</strong>, <strong>Europa 9,3%</strong>, <strong>América do Norte e Central 7,5%</strong>, <strong>América do Sul 5,5%</strong> e <strong>Oceania 0,6%</strong>.</p>
+
+    <div class="highlight">
+      <strong>Por que a Ásia concentra tanta gente?</strong> Combinação de fatores históricos (civilizações antigas nas planícies férteis dos rios Indo, Ganges, Yangtzé), climáticos (monções que permitem agricultura intensiva de arroz) e culturais (sociedades agrárias que tradicionalmente valorizavam famílias grandes).
+    </div>
+  </div>
+
+  <div class="content-block t1">
+    <h3>🔮 O futuro: para onde vai a população?</h3>
+    <p>As projeções da ONU indicam que a população mundial deve atingir <strong>9,7 bilhões em 2050</strong> e possivelmente <strong>10,9 bilhões em 2100</strong>. Mas o mais interessante é <em>onde</em> esse crescimento vai acontecer:</p>
+
+    <div class="highlight green">
+      <strong>África:</strong> Vai mais que dobrar sua população até 2100, passando de ~1,4 bilhão para ~3,2 bilhões. É o continente com maior crescimento projetado.
+    </div>
+    <div class="highlight">
+      <strong>Europa:</strong> Vai perder até 20% de seus habitantes. Países como Itália, Alemanha e Rússia já apresentam crescimento vegetativo negativo (nascem menos pessoas do que morrem).
+    </div>
+
+    <h4>O caso China vs. Índia</h4>
+    <p>Em 2023, a <strong>Índia ultrapassou a China</strong> como país mais populoso do mundo, com cerca de 1,429 bilhão de habitantes contra 1,426 bilhão da China. Isso aconteceu porque:</p>
+    <p>A China implementou a <strong>política do filho único</strong> (1980-2015), que controlou drasticamente os nascimentos. Mesmo após flexibilizar para dois filhos (2016) e três filhos (2021), a taxa de natalidade chinesa continuou caindo — um fenômeno que mostra que, uma vez que a cultura de famílias menores se instala, é difícil reverter.</p>
+    <p>A Índia, embora também esteja com taxas de fecundidade em queda, ainda tem uma estrutura etária mais jovem e um crescimento inercial mais forte. Além disso, cerca de 200 milhões de indianos migram internamente entre estados, gerando desafios enormes de urbanização.</p>
+
+    <div class="vest-tip">
+      <div class="title">Dica de Vestibular</div>
+      <p>A política do filho único da China é tema clássico. Saiba as datas (1980-2015), as consequências (envelhecimento acelerado, desequilíbrio de gênero, "geração 4-2-1") e a flexibilização (2 filhos em 2016, 3 filhos em 2021). ENEM e FUVEST adoram esse tema.</p>
+    </div>
+  </div>
+
+  <div class="content-block t1">
+    <h3>🏙️ Urbanização e Megalópoles</h3>
+    <p>O crescimento populacional veio acompanhado de uma urbanização massiva. A população urbana mundial saiu de <strong>0,7 bilhão em 1950</strong> para mais de <strong>4,6 bilhões em 2020</strong>, e a projeção é de <strong>5 bilhões em 2030</strong>.</p>
+    <p>As maiores megalópoles do mundo (regiões metropolitanas) incluem Tóquio (35,5 milhões), Mumbai (21,9 milhões), Cidade do México (21,6 milhões) e São Paulo (20,5 milhões). Note como a maioria está em países em desenvolvimento ou emergentes — isso reflete o êxodo rural intenso que esses países experimentaram no século XX.</p>
+
+    <div class="extra-tag">Conteúdo adicional — não estava no PPT</div>
+    <p>O conceito de <strong>macrocefalia urbana</strong> é importante: ocorre quando uma única cidade concentra uma parcela desproporcional da população e da economia de um país. Exemplos: Buenos Aires na Argentina, Lima no Peru, Bangkok na Tailândia. Isso gera problemas como inchaço urbano, favelização e desigualdade regional.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ============================== TEMA 2 ============================== -->
+  <div class="section-header" id="tema2">
+    <div class="section-number">02</div>
+    <span class="section-tag t2">Tema 02</span>
+    <h2>Conceitos e Termos Demográficos</h2>
+    <p style="color:var(--text-muted)">Livro 04 — Frente A — Unidade 01 — Pág. 10-12</p>
+  </div>
+
+  <div class="content-block t2">
+    <h3>👥 Populoso vs. Povoado — A diferença crucial</h3>
+    <p>Essa é uma das confusões mais comuns e mais cobradas em vestibulares. Vamos resolver de vez:</p>
+
+    <div class="comparison">
+      <div class="comp-card" style="border-color: var(--accent2);">
+        <h4 style="color:var(--accent2)">POPULOSO</h4>
+        <p style="font-size:1.1rem;color:#fff">= População Absoluta</p>
+        <p>É o <strong>número total</strong> de habitantes de um país. Se tem muita gente no total, é populoso.</p>
+        <p style="color:var(--accent2)">Ex: China (1,4 bi), Índia (1,4 bi), Brasil (215 mi)</p>
+      </div>
+      <div class="comp-card" style="border-color: var(--accent);">
+        <h4 style="color:var(--accent)">POVOADO</h4>
+        <p style="font-size:1.1rem;color:#fff">= Densidade Demográfica</p>
+        <p>É a <strong>concentração</strong> de pessoas por km². Se tem muita gente por km², é povoado.</p>
+        <p style="color:var(--accent)">Ex: Bangladesh (966 hab/km²), Japão (333 hab/km²)</p>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="title">Analogia para nunca mais errar</div>
+      <p>Imagine duas festas. Na <strong>Festa A</strong>, há 500 pessoas num estádio de futebol (muito espaço, pouca concentração). Na <strong>Festa B</strong>, há 50 pessoas espremidas numa kitnet. A Festa A é <em>populosa</em> (muita gente no total), mas a Festa B é mais <em>povoada</em> (mais gente por metro quadrado). <strong>O Brasil</strong> é como a Festa A: é populoso (5º mais populoso do mundo com ~215 milhões), mas é pouco povoado (apenas ~25 hab/km²).</p>
+    </div>
+
+    <div class="formula">
+      <div class="label">Fórmula da Densidade Demográfica</div>
+      <div class="eq">
+        Densidade = 
+        <span class="frac">
+          <span class="num">População Absoluta</span>
+          <span class="den">Área do território (km²)</span>
+        </span>
+        = hab/km²
+      </div>
+    </div>
+
+    <div class="vest-tip">
+      <div class="title">Pegadinha clássica</div>
+      <p>A Rússia é o maior país do mundo em território, tem 147 milhões de habitantes (populoso), mas tem apenas <strong>9 hab/km²</strong> (pouco povoado). Já Bangladesh tem "apenas" 170 milhões de pessoas, mas espremidas em um território minúsculo: <strong>966 hab/km²</strong> (extremamente povoado). Vestibulares adoram jogar com essa distinção.</p>
+    </div>
+  </div>
+
+  <div class="content-block t2">
+    <h3>📊 As Taxas Demográficas Fundamentais</h3>
+
+    <h4>1. Taxa de Natalidade (TN)</h4>
+    <p>É o número de nascidos vivos por mil habitantes em um determinado ano. Indica a intensidade com que as pessoas estão se reproduzindo naquela sociedade.</p>
+
+    <div class="formula">
+      <div class="label">Cálculo da Taxa de Natalidade</div>
+      <div class="eq">
+        TN = 
+        <span class="frac">
+          <span class="num">Nº de nascimentos × 1000</span>
+          <span class="den">Nº de habitantes</span>
+        </span>
+        ‰ (por mil)
+      </div>
+    </div>
+
+    <p>Países com alta taxa de natalidade (acima de 30‰) estão majoritariamente na <strong>África Subsaariana</strong> (Níger, Chade, Somália, Mali). Países com baixa taxa (abaixo de 12‰) estão na <strong>Europa e Leste Asiático</strong> (Japão, Alemanha, Itália). O Brasil está em torno de <strong>13-14‰</strong>, já considerada baixa.</p>
+
+    <h4>2. Taxa de Mortalidade (TM)</h4>
+    <p>É o número de óbitos por mil habitantes em um determinado ano.</p>
+
+    <div class="formula">
+      <div class="label">Cálculo da Taxa de Mortalidade</div>
+      <div class="eq">
+        TM = 
+        <span class="frac">
+          <span class="num">Nº de óbitos × 1000</span>
+          <span class="den">Nº de habitantes</span>
+        </span>
+        ‰ (por mil)
+      </div>
+    </div>
+
+    <div class="highlight green">
+      <strong>Atenção com a mortalidade!</strong> Um dado que engana muita gente: alguns países europeus (como Alemanha e Bulgária) têm taxas de mortalidade relativamente altas (acima de 11‰). Isso NÃO significa que esses países têm condições de vida ruins. Significa que têm <strong>muitos idosos</strong> na população — e idosos morrem mais, naturalmente. Já alguns países africanos com população muito jovem podem ter taxas de mortalidade geral mais baixas do que se esperaria, mesmo com condições precárias. Por isso, é importante analisar também a <strong>taxa de mortalidade infantil</strong> e a <strong>expectativa de vida</strong>.
+    </div>
+
+    <h4>3. Taxa de Fecundidade (TF)</h4>
+    <p>É o <strong>número médio de filhos por mulher</strong> ao longo de seu período fértil (15 a 49 anos). É diferente de natalidade!</p>
+
+    <div class="comparison">
+      <div class="comp-card">
+        <h4 style="color:var(--accent3)">Natalidade</h4>
+        <p>Nascimentos / total de habitantes</p>
+        <p>Considera TODA a população (homens, mulheres, idosos, crianças)</p>
+      </div>
+      <div class="comp-card">
+        <h4 style="color:var(--accent2)">Fecundidade</h4>
+        <p>Filhos / mulher em idade fértil</p>
+        <p>Considera APENAS mulheres entre 15-49 anos</p>
+      </div>
+    </div>
+
+    <p>A <strong>taxa de reposição</strong> é de <strong>2,1 filhos por mulher</strong>. Abaixo disso, a população tende a encolher a longo prazo. Países com taxas extremas: Níger (6,89), Afeganistão (5,43) vs. Singapura (0,8), Coreia do Sul (1,2), Alemanha (1,43). O Brasil está em <strong>1,55</strong> — abaixo da reposição!</p>
+
+    <div class="extra-tag">Conteúdo adicional — não estava no PPT</div>
+    <p><strong>Atenção à diferença entre fertilidade e fecundidade:</strong> Fertilidade é a capacidade biológica de ter filhos. Fecundidade é o número efetivo de filhos que a mulher tem. Uma mulher pode ser fértil mas ter fecundidade zero (se não tiver filhos). Vestibulares às vezes trocam os termos para confundir.</p>
+  </div>
+
+  <div class="content-block t2">
+    <h3>🌱 Crescimento Vegetativo (ou Natural)</h3>
+    <p>É a diferença entre a taxa de natalidade e a taxa de mortalidade. Indica se a população está crescendo, estável ou diminuindo por fatores <strong>naturais</strong> (sem considerar migrações).</p>
+
+    <div class="formula">
+      <div class="label">Cálculo do Crescimento Vegetativo</div>
+      <div class="eq">
+        CV = Natalidade − Mortalidade
+      </div>
+    </div>
+
+    <p>Se CV &gt; 0: população cresce naturalmente.<br>
+    Se CV = 0: população estável (estagnação demográfica).<br>
+    Se CV &lt; 0: população encolhe (implosão demográfica).</p>
+
+    <p>No Brasil, o crescimento vegetativo vem caindo consistentemente: era de <strong>29‰ nos anos 1960</strong>, caiu para <strong>19‰ nos anos 1980</strong>, <strong>13‰ nos anos 2000</strong>, e a estimativa para a década de 2020 é de apenas <strong>9‰</strong>.</p>
+
+    <div class="highlight yellow">
+      <strong>Cuidado!</strong> O crescimento vegetativo NÃO é o crescimento real da população. O <strong>crescimento real (ou absoluto)</strong> considera também a migração: <em>Crescimento Real = CV + Saldo Migratório</em>. Um país pode ter CV negativo mas crescer por imigração (ex: Alemanha), ou ter CV positivo mas perder gente por emigração (ex: Síria durante a guerra civil).
+    </div>
+  </div>
+
+  <div class="content-block t2">
+    <h3>🕐 Expectativa de Vida</h3>
+    <p>É a estimativa da quantidade de anos que uma população possivelmente irá viver, tendo em conta o padrão de mortalidade de uma região. É um dos <strong>indicadores de desenvolvimento</strong> mais importantes.</p>
+
+    <p>No Brasil, a expectativa de vida aumentou <strong>30 anos desde 1940</strong>: saiu de 45,5 anos para 75,5 anos em 2010. Os estados com maiores expectativas são Santa Catarina (78,7), Espírito Santo (77,9), DF (77,8) e São Paulo (77,8).</p>
+
+    <p>Em geral, <strong>mulheres vivem mais que homens</strong> em todos os países do mundo, por uma combinação de fatores biológicos (proteção hormonal) e comportamentais (homens se expõem mais a riscos, violência e acidentes).</p>
+
+    <div class="extra-tag">Conteúdo adicional — não estava no PPT</div>
+    <p>A expectativa de vida compõe o <strong>IDH (Índice de Desenvolvimento Humano)</strong> junto com educação e renda. O IDH é calculado pelo PNUD/ONU e vai de 0 a 1. Em vestibulares, relacione sempre: alta expectativa de vida → melhor IDH → países mais desenvolvidos.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ============================== TEMA 3 ============================== -->
+  <div class="section-header" id="tema3">
+    <div class="section-number">03</div>
+    <span class="section-tag t3">Tema 03</span>
+    <h2>Teorias Demográficas</h2>
+    <p style="color:var(--text-muted)">Livro 04 — Frente A — Unidade 01 — Cap. 01 — Pág. 13-15</p>
+  </div>
+
+  <div class="content-block t3">
+    <h3>📚 As 4 Grandes Teorias — Visão Geral</h3>
+    <p>Ao longo da história, diferentes pensadores tentaram explicar a relação entre <strong>crescimento populacional, fome, pobreza e recursos</strong>. Cada teoria reflete o contexto histórico de sua época. Vamos entender cada uma com profundidade:</p>
+
+    <div class="theory-grid">
+      <div class="theory-card">
+        <span class="emoji">📖</span>
+        <h4>A) Malthusiana</h4>
+        <div class="period">Séc. XVIII (1798)</div>
+        <p>Thomas Malthus. População cresce em PG, alimentos em PA. Solução: controle moral.</p>
+      </div>
+      <div class="theory-card">
+        <span class="emoji">💊</span>
+        <h4>B) Neomalthusiana</h4>
+        <div class="period">Pós-2ª GM (~1950)</div>
+        <p>Países subdesenvolvidos. + população = + pobreza. Solução: controle de natalidade.</p>
+      </div>
+      <div class="theory-card">
+        <span class="emoji">⚖️</span>
+        <h4>C) Reformista</h4>
+        <div class="period">Pós-1950</div>
+        <p>Crítica aos neomalthusianos. Pobreza é causa, não consequência. Solução: reformas sociais.</p>
+      </div>
+      <div class="theory-card">
+        <span class="emoji">🌿</span>
+        <h4>D) Ecomalthusiana</h4>
+        <div class="period">1960/1970</div>
+        <p>Clube de Roma. Crescimento pressiona recursos naturais. Solução: consumo sustentável.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block t3">
+    <h3>📖 A) Teoria Malthusiana (1798)</h3>
+    <p><strong>Contexto histórico:</strong> Thomas Robert Malthus era um pastor anglicano e economista inglês que viveu durante a 1ª Revolução Industrial, quando a população da Inglaterra crescia rapidamente e a miséria urbana era visível.</p>
+
+    <p><strong>O que Malthus dizia:</strong> Em seu livro <em>"Ensaio sobre o Princípio da População"</em> (1798), Malthus afirmou que:</p>
+
+    <div class="comparison">
+      <div class="comp-card" style="border-color:var(--accent)">
+        <h4 style="color:var(--accent)">População</h4>
+        <p>Cresce em <strong>Progressão Geométrica</strong> (PG)</p>
+        <p style="font-family:'JetBrains Mono';color:var(--accent)">2 → 4 → 8 → 16 → 32 → 64</p>
+      </div>
+      <div class="comp-card" style="border-color:var(--accent2)">
+        <h4 style="color:var(--accent2)">Alimentos</h4>
+        <p>Crescem em <strong>Progressão Aritmética</strong> (PA)</p>
+        <p style="font-family:'JetBrains Mono';color:var(--accent2)">2 → 4 → 6 → 8 → 10 → 12</p>
+      </div>
+    </div>
+
+    <p><strong>Consequência:</strong> Em algum momento, haveria mais gente do que comida, resultando em fome, miséria e catástrofes. Malthus chamava os mecanismos que freavam a população de <strong>"freios positivos"</strong> (guerras, epidemias, fome) e <strong>"freios preventivos"</strong> (abstinência sexual, casamento tardio).</p>
+
+    <div class="highlight yellow">
+      <strong>Por que Malthus ERROU?</strong> Ele não previu duas revoluções: (1) a <strong>Revolução Agrícola/Verde</strong>, que multiplicou a produção de alimentos exponencialmente com mecanização, fertilizantes, pesticidas e sementes geneticamente modificadas; (2) a <strong>transição demográfica</strong>, pela qual as taxas de natalidade caíram naturalmente com a urbanização e o desenvolvimento. Hoje, o mundo produz alimentos suficientes para 10 bilhões de pessoas — o problema é a <strong>distribuição</strong>, não a produção.
+    </div>
+  </div>
+
+  <div class="content-block t3">
+    <h3>💊 B) Teoria Neomalthusiana (pós-1950)</h3>
+    <p><strong>Contexto histórico:</strong> Após a 2ª Guerra Mundial, os países subdesenvolvidos (especialmente na Ásia e África) passaram por uma <strong>explosão demográfica</strong> causada pela queda rápida da mortalidade (importação de remédios e vacinas dos países desenvolvidos) sem queda correspondente da natalidade.</p>
+
+    <p><strong>O que os Neomalthusianos diziam:</strong> Retomaram a ideia de Malthus, mas com uma leitura atualizada: o rápido crescimento populacional nos países pobres era o <strong>principal obstáculo ao desenvolvimento</strong>. Mais gente = mais pobreza, mais fome, mais pressão sobre recursos.</p>
+
+    <p><strong>Solução proposta:</strong> <strong>Controle de natalidade</strong> através de métodos anticoncepcionais, planejamento familiar obrigatório, esterilização e até aborto em alguns casos. Defendiam que os governos deveriam investir pesado em reduzir a natalidade antes de qualquer outra coisa.</p>
+
+    <div class="highlight">
+      <strong>Críticas à teoria neomalthusiana:</strong> É uma teoria reducionista que coloca a culpa da pobreza nas vítimas (os pobres que "têm filhos demais"). Ignora que a pobreza tem causas estruturais como colonialismo, desigualdade na distribuição de terras, exploração econômica e concentração de renda. Reduzir a natalidade sem reformas sociais não resolve a pobreza — países como a China controlaram a natalidade mas o desenvolvimento veio por outros fatores.
+    </div>
+  </div>
+
+  <div class="content-block t3">
+    <h3>⚖️ C) Teoria Reformista (pós-1950)</h3>
+    <p><strong>Contexto histórico:</strong> Surge no contexto da 3ª Revolução Industrial e da industrialização dos países subdesenvolvidos, como <strong>resposta direta aos neomalthusianos</strong>.</p>
+
+    <p><strong>O que os Reformistas diziam:</strong></p>
+
+    <div class="highlight green">
+      <strong>A ideia central é uma INVERSÃO de causa e efeito:</strong><br>
+      — Neomalthusianos: "A população cresce → e gera pobreza" (população é CAUSA)<br>
+      — Reformistas: "A pobreza existe → e faz a população crescer" (população é CONSEQUÊNCIA)
+    </div>
+
+    <p>Para os reformistas, a fome no mundo não é causada pelo excesso de gente, mas pela <strong>má distribuição de alimentos e de riqueza</strong>. O crescimento populacional descontrolado é <strong>consequência da pobreza</strong>, não sua causa — pessoas pobres têm mais filhos porque precisam de mão de obra familiar, não têm acesso a educação e contraceptivos, e vivem em contextos onde a mortalidade infantil é alta (então "compensam" tendo mais filhos).</p>
+
+    <p><strong>Solução proposta:</strong> <strong>Reformas sociais e econômicas</strong> — mais educação, mais informação, mais emprego e renda. Com desenvolvimento social, as taxas de natalidade caem naturalmente, sem necessidade de controle autoritário.</p>
+
+    <p><strong>Exemplos que comprovam a teoria:</strong> França e Suécia (pós-2ª GM) implementaram o Estado de bem-estar social e viram suas taxas de natalidade caírem naturalmente. No Brasil, o programa Bolsa Família (2003) contribuiu para a melhoria de indicadores sociais e coincidiu com a queda da fecundidade.</p>
+
+    <div class="vest-tip">
+      <div class="title">Isso cai MUITO no ENEM</div>
+      <p>A Teoria Reformista é a preferida das bancas do ENEM porque se alinha à visão de que <strong>desenvolvimento social gera controle demográfico</strong>. Se a questão perguntar "qual teoria defende que o crescimento populacional é consequência da pobreza", a resposta é REFORMISTA. Se perguntar "qual defende controle de natalidade como solução", é NEOMALTHUSIANA.</p>
+    </div>
+  </div>
+
+  <div class="content-block t3">
+    <h3>🌿 D) Teoria Ecomalthusiana (1960/1970)</h3>
+    <p><strong>Contexto histórico:</strong> Década de 1960-70, preocupações ambientais crescentes, Clube de Roma (1972) publica <em>"Limites do Crescimento"</em>, a industrialização dos países subdesenvolvidos com "transferência do custo sujo" (indústrias poluentes migrando para o terceiro mundo).</p>
+
+    <p><strong>O que os Ecomalthusianos diziam:</strong> O crescimento populacional geraria uma <strong>pressão insustentável sobre os recursos naturais</strong> do planeta. O problema não era apenas alimentar as pessoas, mas o impacto ambiental do consumo de todos esses seres humanos.</p>
+
+    <p><strong>Solução proposta:</strong> Controle da natalidade + consumo sustentável.</p>
+
+    <div class="highlight mint">
+      <strong>A grande crítica:</strong> Os ecomalthusianos muitas vezes culpavam os países subdesenvolvidos (que estavam em processo de industrialização) pela degradação ambiental. Mas o nível de consumo de um americano equivale a <strong>7 vezes um brasileiro</strong> e <strong>14 vezes um indiano</strong>. Então, o problema ambiental está mais ligado ao <strong>padrão de consumo</strong> dos países ricos do que ao número de pessoas nos países pobres. A questão ambiental "atrasaria o desenvolvimento industrial" dos países mais pobres — o que não é justo, pois os países ricos poluíram à vontade durante suas revoluções industriais.
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ============================== TEMA 4 ============================== -->
+  <div class="section-header" id="tema4">
+    <div class="section-number">04</div>
+    <span class="section-tag t4">Tema 04</span>
+    <h2>Estrutura Etária, Transição Demográfica e Pirâmides</h2>
+    <p style="color:var(--text-muted)">Livro 04 — Frente A — Unid. 01 — Cap. 01 — Pág. 14-22</p>
+  </div>
+
+  <div class="content-block t4">
+    <h3>🔄 A Transição Demográfica — O conceito central</h3>
+    <p>A <strong>Transição Demográfica</strong> é o conceito mais importante de toda a demografia. Foi elaborado em <strong>1929 por Warren Thompson</strong> para contestar matematicamente a teoria de Malthus. Thompson mostrou que a população NÃO cresce indefinidamente — ela passa por <strong>oscilações periódicas</strong> que alternam crescimentos e desacelerações, podendo chegar a estágios de estabilidade.</p>
+
+    <div class="analogy">
+      <div class="title">Analogia para entender a Transição Demográfica</div>
+      <p>Pense no ciclo de vida de uma pessoa: ela nasce (poucas habilidades), cresce rapidamente na adolescência (explosão de crescimento), se estabiliza na fase adulta, e depois desacelera na velhice. A população de um país faz algo parecido: começa com crescimento lento, passa por uma "adolescência" de crescimento acelerado, e depois se estabiliza ou até encolhe na "maturidade demográfica".</p>
+    </div>
+
+    <h4>Os 5 Estágios da Transição Demográfica</h4>
+
+    <table class="stage-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Estágio 1</th>
+          <th>Estágio 2</th>
+          <th>Estágio 3</th>
+          <th>Estágio 4</th>
+          <th>Estágio 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Natalidade</td>
+          <td>Alta</td>
+          <td>Alta</td>
+          <td>Caindo</td>
+          <td>Baixa</td>
+          <td>Pode cair mais ou subir</td>
+        </tr>
+        <tr>
+          <td>Mortalidade</td>
+          <td>Alta</td>
+          <td>Queda rápida</td>
+          <td>Queda lenta</td>
+          <td>Baixa</td>
+          <td>Baixa</td>
+        </tr>
+        <tr>
+          <td>Crescimento</td>
+          <td>Estável / baixo</td>
+          <td>Muito rápido</td>
+          <td>Diminui</td>
+          <td>Queda e estabilização</td>
+          <td>Estável / baixo</td>
+        </tr>
+        <tr>
+          <td>Exemplo</td>
+          <td>Nenhum país hoje</td>
+          <td>Países africanos</td>
+          <td>Brasil, México, Índia</td>
+          <td>EUA, China</td>
+          <td>Japão, Alemanha, Itália</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block t4">
+    <h3>📊 Entendendo cada estágio em detalhes</h3>
+
+    <h4>Estágio 1 — Regime Demográfico Primitivo (Pré-transição)</h4>
+    <p>Natalidade alta + Mortalidade alta = crescimento vegetativo baixo ou nulo. Ambas as taxas são elevadas e próximas. Era a realidade da humanidade até o início da Revolução Industrial. Hoje, <strong>nenhum país do mundo está neste estágio</strong>.</p>
+
+    <h4>Estágio 2 — Explosão Demográfica (Aceleração)</h4>
+    <p>A mortalidade <strong>despenca rapidamente</strong> (graças a melhorias médico-hospitalares, vacinas, saneamento básico), mas a natalidade <strong>permanece alta</strong> (os hábitos culturais demoram para mudar). Resultado: <strong>crescimento vegetativo altíssimo</strong> — é a famosa "explosão demográfica".</p>
+    <p>Na Europa, isso ocorreu no <strong>século XIX</strong>. Nos países subdesenvolvidos, ocorreu no <strong>século XX</strong> (especialmente após a 2ª Guerra Mundial, quando remédios e vacinas dos países ricos chegaram ao terceiro mundo).</p>
+
+    <div class="highlight">
+      <strong>Baby Boom (1946-1964):</strong> Período de crescimento exponencial de nascimentos nos países desenvolvidos logo após a 2ª Guerra Mundial. Os soldados voltaram para casa, houve otimismo econômico, e a natalidade disparou. A geração Baby Boomer é hoje a geração que está se aposentando e sobrecarregando os sistemas previdenciários.
+    </div>
+
+    <h4>Estágio 3 — Desaceleração Demográfica</h4>
+    <p>A natalidade <strong>começa a cair</strong> (urbanização, acesso a contraceptivos, mulheres no mercado de trabalho, custo de criar filhos), enquanto a mortalidade <strong>continua em queda lenta</strong>. O crescimento vegetativo começa a diminuir. <strong>O Brasil está neste estágio.</strong></p>
+
+    <h4>Estágio 4 — Estabilização</h4>
+    <p>Natalidade e mortalidade são ambas <strong>baixas</strong>. Crescimento vegetativo próximo de zero. A população se estabiliza. Exemplos: EUA, China, maioria dos países europeus.</p>
+
+    <h4>Estágio 5 — Declínio (Implosão Demográfica)</h4>
+    <p>A natalidade cai <strong>abaixo</strong> da mortalidade. Crescimento vegetativo <strong>negativo</strong>. A população encolhe. Exemplos: Japão, Alemanha, Itália, Rússia. Este é o estágio da <strong>implosão demográfica</strong>.</p>
+
+    <div class="comparison">
+      <div class="comp-card" style="border-color:var(--accent)">
+        <h4 style="color:var(--accent)">Explosão Demográfica</h4>
+        <p>Mortalidade cai, natalidade permanece alta → crescimento acelerado</p>
+        <p>Estágio 2</p>
+      </div>
+      <div class="comp-card" style="border-color:var(--accent2)">
+        <h4 style="color:var(--accent2)">Implosão Demográfica</h4>
+        <p>Natalidade cai abaixo da mortalidade → população encolhe</p>
+        <p>Estágio 5</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block t4">
+    <h3>🔺 Pirâmides Etárias — Lendo a "selfie" da população</h3>
+    <p>A pirâmide etária é um gráfico em barras horizontais que mostra a distribuição da população por <strong>sexo</strong> (homens à esquerda, mulheres à direita) e por <strong>faixa etária</strong> (da base/jovens ao topo/idosos). Ela funciona como uma "fotografia" da estrutura demográfica de um país.</p>
+
+    <div class="analogy">
+      <div class="title">Como ler uma pirâmide etária</div>
+      <p><strong>Base larga</strong> = muitos jovens = alta natalidade = país jovem/pobre (estágio 2).<br>
+      <strong>Corpo largo no meio</strong> = muitos adultos = transição (estágio 3).<br>
+      <strong>Topo alargado</strong> = muitos idosos = país envelhecido/rico (estágios 4-5).<br>
+      <strong>Base estreita</strong> = poucos nascimentos = baixa natalidade.</p>
+    </div>
+
+    <h4>Os 3 formatos clássicos de pirâmide</h4>
+    <div class="theory-grid">
+      <div class="theory-card">
+        <span class="emoji">🔺</span>
+        <h4>Pirâmide Jovem</h4>
+        <div class="period">Estágios 1-2</div>
+        <p>Base muito larga, topo estreito. Alta natalidade, baixa expectativa de vida. Ex: Uganda, Níger, Mali.</p>
+      </div>
+      <div class="theory-card">
+        <span class="emoji">⬠</span>
+        <h4>Pirâmide Adulta (em transição)</h4>
+        <div class="period">Estágio 3</div>
+        <p>Base se estreitando, corpo largo. Natalidade caindo, população adulta cresce. Ex: Brasil, México, Índia.</p>
+      </div>
+      <div class="theory-card">
+        <span class="emoji">🔷</span>
+        <h4>Pirâmide Envelhecida (invertida)</h4>
+        <div class="period">Estágios 4-5</div>
+        <p>Base estreita, corpo/topo largos. Baixa natalidade, alta expectativa de vida. Ex: Japão, Alemanha, Itália.</p>
+      </div>
+    </div>
+
+    <div class="vest-tip">
+      <div class="title">Dica para prova</div>
+      <p>Quando o vestibular mostrar uma pirâmide etária e pedir para identificar o país ou o estágio de desenvolvimento: olhe PRIMEIRO para a BASE. Base larga = país pobre/jovem. Base estreita = país rico/envelhecido. Depois olhe o TOPO: topo largo = alta expectativa de vida. Pronto, você já mata 90% das questões.</p>
+    </div>
+  </div>
+
+  <div class="content-block t4">
+    <h3>🇧🇷 A Pirâmide Etária do Brasil — A transição em ação</h3>
+    <p>O Brasil é um exemplo perfeito de transição demográfica. Compare as pirâmides ao longo do tempo:</p>
+
+    <div class="theory-grid">
+      <div class="theory-card">
+        <span class="emoji">1950</span>
+        <h4>Pirâmide Triangular</h4>
+        <p>Base muito larga (alta natalidade ~6,2 filhos/mulher), topo fino (expectativa ~45 anos). Brasil jovem e agrário.</p>
+      </div>
+      <div class="theory-card">
+        <span class="emoji">1985</span>
+        <h4>Pirâmide Transicional</h4>
+        <p>Base começando a estreitar, corpo se alargando. Urbanização acelerada, queda da fecundidade.</p>
+      </div>
+      <div class="theory-card">
+        <span class="emoji">2020</span>
+        <h4>Pirâmide Adulta</h4>
+        <p>Base estreita, "barriga" nas faixas de 25-44 anos. Fecundidade de 1,55 filho/mulher. População envelhecendo.</p>
+      </div>
+    </div>
+
+    <p>A taxa de fecundidade do Brasil caiu de <strong>6,16 filhos/mulher em 1940</strong> para <strong>1,55 em 2022</strong> — uma queda impressionante de 75%. Isso coloca o Brasil <strong>abaixo da taxa de reposição</strong> (2,1), o que significa que, a longo prazo, sem imigração, a população brasileira tende a encolher.</p>
+  </div>
+
+  <div class="content-block t4">
+    <h3>💎 Janela Demográfica (Bônus Demográfico)</h3>
+    <p>Este é talvez o conceito mais importante para o futuro do Brasil, e cai em praticamente todos os vestibulares importantes.</p>
+
+    <div class="highlight mint">
+      <strong>Definição:</strong> Janela Demográfica ou Bônus Demográfico é o período em que a <strong>PEA (População Economicamente Ativa — 15 a 64 anos)</strong> é muito superior à <strong>PEI (População Economicamente Inativa — menores de 15 e maiores de 65)</strong>. É uma <strong>oportunidade única</strong> de crescimento econômico.
+    </div>
+
+    <p>Veja os dados do Brasil:</p>
+    <div class="comparison">
+      <div class="comp-card">
+        <h4 style="color:var(--accent)">Brasil 1970</h4>
+        <p>Jovens (0-14): <strong>42,3%</strong></p>
+        <p>Adultos (15-64): <strong>54%</strong></p>
+        <p>Idosos (65+): <strong>3,7%</strong></p>
+      </div>
+      <div class="comp-card">
+        <h4 style="color:var(--accent2)">Brasil 2010</h4>
+        <p>Jovens (0-14): <strong>25,5%</strong></p>
+        <p>Adultos (15-64): <strong>67,6%</strong></p>
+        <p>Idosos (65+): <strong>6,9%</strong></p>
+      </div>
+    </div>
+
+    <p>Perceba: em 1970, para cada 100 adultos produtivos, havia ~85 dependentes (crianças + idosos). Em 2010, para cada 100 adultos, havia ~48 dependentes. Isso é o bônus demográfico: <strong>mais braços para trabalhar, menos bocas para sustentar</strong>. É uma janela de oportunidade porque:</p>
+
+    <p>→ Com menos gastos proporcionais em dependentes, o país pode investir mais em infraestrutura, educação e produtividade.<br>
+    → Há mais mão de obra disponível, o que pode impulsionar a economia.</p>
+
+    <p>Porém, o bônus demográfico do Brasil deve durar <strong>até a próxima década</strong>, segundo o IBGE. Depois disso, a população idosa vai crescer rapidamente e a parcela produtiva vai encolher.</p>
+
+    <div class="vest-tip">
+      <div class="title">Pergunta frequente nos vestibulares</div>
+      <p>"O Brasil está aproveitando seu bônus demográfico?" A resposta que as bancas esperam: <strong>NÃO adequadamente</strong>. O Brasil tem altas taxas de desemprego, informalidade, baixa qualificação profissional e investimentos insuficientes em educação. Países como Coreia do Sul e China aproveitaram sua janela demográfica com investimentos pesados em educação e indústria. O Brasil corre o risco de "envelhecer antes de enriquecer".</p>
+    </div>
+  </div>
+
+  <div class="content-block t4">
+    <h3>📉 Razão de Dependência</h3>
+    <p>A <strong>Razão de Dependência</strong> é a relação entre a população economicamente dependente (menores de 15 anos + maiores de 65 anos) e a população potencialmente produtiva (15 a 64 anos).</p>
+
+    <div class="formula">
+      <div class="label">Cálculo da Razão de Dependência</div>
+      <div class="eq">
+        RD = 
+        <span class="frac">
+          <span class="num">Pop. (0-14) + Pop. (65+)</span>
+          <span class="den">Pop. (15-64)</span>
+        </span>
+        × 100
+      </div>
+    </div>
+
+    <p>No Brasil, a razão de dependência de idosos vem crescendo rapidamente: era de <strong>~8%</strong> em 2000 (para cada 100 trabalhadores, 8 idosos), e a projeção é de <strong>~40%</strong> em 2060 (para cada 100 trabalhadores, 40 idosos). Isso tem consequências enormes para a previdência social, o sistema de saúde e o mercado de trabalho.</p>
+
+    <div class="highlight">
+      <strong>Consequências da Implosão Demográfica (Estágio 5):</strong><br>
+      → Redução da PEA e aumento da expectativa de vida = menos trabalhadores sustentando mais aposentados.<br>
+      → Maiores custos com saúde e previdência.<br>
+      → Problemas econômicos e sociais, sobretudo em países pouco estruturados.<br>
+      → Necessidade de reformas previdenciárias (como a que o Brasil fez em 2019).<br>
+      → Necessidade de imigração para repor a força de trabalho (como faz a Alemanha).
+    </div>
+  </div>
+
+  <!-- ============================== VÍDEOS ============================== -->
+  <div class="divider"></div>
+
+  <div class="video-section">
+    <h3>🎬 Videoaulas Recomendadas</h3>
+    <p style="color:var(--text-muted);margin-bottom:24px">Professores consagrados entre vestibulandos, com aulas completas e aprofundadas. Assista no YouTube:</p>
+
+    <div class="video-item">
+      <div class="video-icon">▶️</div>
+      <div class="video-info">
+        <h4>Demografia — Crescimento Populacional e Teorias Demográficas</h4>
+        <p><span class="prof">Prof. Claudio Hansen</span> — Um dos professores de Geografia mais assistidos do Brasil. Aula completa e didática sobre toda a base da demografia.</p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-icon">▶️</div>
+      <div class="video-info">
+        <h4>Teorias Demográficas — Malthus, Neomalthusiana, Reformista e Ecomalthusiana</h4>
+        <p><span class="prof">Prof. Leandro Almeida (Se Liga Nessa História / Descomplica)</span> — Excelente para entender as diferenças entre as 4 teorias com linguagem acessível.</p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-icon">▶️</div>
+      <div class="video-info">
+        <h4>Transição Demográfica e Pirâmide Etária — Aula Completa</h4>
+        <p><span class="prof">Prof. Rogério Silveira (ProEnem / Estratégia Vestibulares)</span> — Especialista em Geografia para vestibulares, explica os 5 estágios da transição com clareza e exemplos de provas anteriores.</p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-icon">▶️</div>
+      <div class="video-info">
+        <h4>Pirâmide Etária e Bônus Demográfico do Brasil</h4>
+        <p><span class="prof">Prof. Eduardo Mendes (Se Joga / ProEnem)</span> — Foco no Brasil: como ler pirâmides, o que é janela demográfica, razão de dependência e por que o Brasil pode "envelhecer antes de enriquecer".</p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-icon">▶️</div>
+      <div class="video-info">
+        <h4>Demografia no ENEM — Questões Comentadas</h4>
+        <p><span class="prof">Prof. Claudio Hansen</span> — Resolução de questões de demografias de provas anteriores do ENEM e grandes vestibulares. Ideal para consolidar o aprendizado.</p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-icon">▶️</div>
+      <div class="video-info">
+        <h4>Crescimento Populacional, Conceitos e Teorias</h4>
+        <p><span class="prof">Prof. Chicão (Geografia Irada)</span> — Aula animada e visual, ideal para quem quer revisar de forma descontraída.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================== RESUMO FINAL ============================== -->
+  <div class="divider"></div>
+
+  <div class="content-block t1">
+    <h3>🧠 Mapa Mental — Resumo Final para Revisão</h3>
+    <p>Use este quadro para revisar todos os conceitos antes da prova:</p>
+
+    <table class="stage-table">
+      <thead>
+        <tr>
+          <th>Conceito</th>
+          <th>O que é</th>
+          <th>Dica</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Populoso</td>
+          <td>Muita gente no total (pop. absoluta)</td>
+          <td>China, Índia, EUA, Brasil</td>
+        </tr>
+        <tr>
+          <td>Povoado</td>
+          <td>Muita gente por km² (dens. demográfica)</td>
+          <td>Bangladesh, Japão, Holanda</td>
+        </tr>
+        <tr>
+          <td>Natalidade</td>
+          <td>Nasc./1000 hab</td>
+          <td>Alta na África, baixa na Europa</td>
+        </tr>
+        <tr>
+          <td>Fecundidade</td>
+          <td>Filhos/mulher (15-49 anos)</td>
+          <td>Reposição = 2,1</td>
+        </tr>
+        <tr>
+          <td>Cresc. Vegetativo</td>
+          <td>Natalidade − Mortalidade</td>
+          <td>NÃO inclui migração</td>
+        </tr>
+        <tr>
+          <td>Malthusiana</td>
+          <td>Pop. PG, alimentos PA</td>
+          <td>1798, ERROU (Rev. Verde)</td>
+        </tr>
+        <tr>
+          <td>Neomalthusiana</td>
+          <td>+ pop = + pobreza</td>
+          <td>Solução: controle natalidade</td>
+        </tr>
+        <tr>
+          <td>Reformista</td>
+          <td>Pobreza causa crescimento</td>
+          <td>Solução: reformas sociais</td>
+        </tr>
+        <tr>
+          <td>Ecomalthusiana</td>
+          <td>Pop. pressiona natureza</td>
+          <td>Clube de Roma, 1972</td>
+        </tr>
+        <tr>
+          <td>Trans. Demográfica</td>
+          <td>5 estágios de oscilação</td>
+          <td>Brasil está no estágio 3</td>
+        </tr>
+        <tr>
+          <td>Bônus Demográfico</td>
+          <td>PEA > PEI</td>
+          <td>BR: até ~2035. Está aproveitando mal!</td>
+        </tr>
+        <tr>
+          <td>Razão Dependência</td>
+          <td>(0-14 + 65+) / 15-64</td>
+          <td>Cresce com envelhecimento</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<footer>
+  <p>Aula elaborada com base nos slides do <strong>Prof. Bruno Mastrocola</strong> — Geografia Geral<br>
+  Livro 04 — Frente A — Unidade 01 — Temas 01 a 04<br>
+  <span style="color:var(--accent)">Preparação nível ENEM, FUVEST, UNICAMP, UNESP</span></p>
+</footer>
+
+</body>
+</html>
